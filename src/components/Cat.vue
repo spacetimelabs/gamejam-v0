@@ -2,7 +2,7 @@
   <div class="cat">
     <img class="tail" :src="rabos[cat.tail]" />
     <img class="body" :src="corpos[cat.body]" />
-    <img class="paws" :src="patas[cat.paws]" />
+    <img class="paws" :src="patas[cat.body]" />
     <div class="head">
       <img class="head-bg" :src="cabecas[cat.head]" />
       <img class="eye" :src="olhos[cat.eyes]" />
@@ -42,9 +42,9 @@ const olhos = {
 
 const patas = {
   cinza: require("@/assets/patas-cinza.png"),
-  manchada: require("@/assets/patas-manchada.png"),
+  manchado: require("@/assets/patas-manchado.png"),
   preto: require("@/assets/patas-preto.png"),
-  amarela: require("@/assets/patas-amarela.png")
+  amarelo: require("@/assets/patas-amarelo.png")
 };
 
 const rabos = {

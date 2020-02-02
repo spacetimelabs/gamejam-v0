@@ -51,7 +51,7 @@ export default {
     this.generateCat();
     setInterval(() => {
       this.generateCat();
-    }, 5000);
+    }, 1000);
   },
   methods: {
     generateCat() {
