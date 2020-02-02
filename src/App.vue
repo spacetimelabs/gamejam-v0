@@ -4,7 +4,9 @@
     <cat-description name="Mr Mustafari" :symptoms="symptoms" />
 
     <button @click="generateCat">Gera Gato</button>
-    <button @click="doExam">Faz Exame {{ examLevel }}</button>
+    <button @click="doExam" :disabled="!examButtonEnabled">
+      Faz Exame {{ examLevel }}
+    </button>
 
     <pre>level: {{ level }}</pre>
     <pre>examLevel: {{ examLevel }}</pre>
@@ -20,7 +22,7 @@ import symptoms from "./symptoms";
 const EXAMS_PRICE = {
   0: 150,
   1: 250,
-  3: 500
+  2: 500
 };
 
 export default {
@@ -50,6 +52,17 @@ export default {
         }
       }
       this.examLevel += 1;
+    }
+  },
+  computed: {
+    examButtonEnabled() {
+      if (this.examLevel == 3) {
+        return false;
+      }
+      if (this.cash <= EXAMS_PRICE[this.examLevel]) {
+        return false;
+      }
+      return true;
     }
   }
 };
