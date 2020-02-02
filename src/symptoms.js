@@ -53,18 +53,35 @@ const generateRandomSymptons = (level) => {
     var selected = utils.randomFromList(treats);
     var symps = SYMPTOMS.filter(s => selected.SYMP.indexOf(s.name) != -1)
 
-    var toAdd = Math.floor(Math.random() * level/10);
-    var toRemove = Math.floor(Math.random() * level/15);
+    var toRemove = Math.floor(Math.random() * level/10);
+    var toAdd = Math.floor(Math.random() * level/15);
 
-//    for (var l = 0; l < toRemove; l++) {
-//        if (symps.length === 0) {break;}
-//        var tr = utils.getRadomInt(0, symps.length);
-//    }
+    for (let l = 0; l < toRemove; l++) {
+        if (symps.length === 0) {break;}
+        symps.splice(utils.getRandomInt(0, symps.length), 1);
+    }
+    for (let l = 0; l < toAdd; l++) {
+        if (symps.length === 0) {break;}
+        let nsymps = SYMPTOMS.filter(s => symps.map(s => s.name).indexOf(s.name) === -1);
+        symps[symps.length] = nsymps[utils.getRandomInt(0, nsymps.length)];
+    }
 
-//    for (l = 3; l >= 0; l--) {
-        
-//    }
+    var completing = false
+    for (let l = SEVERITY_CRITICAL; l >= 0; l--) {
+        let nl = symps.filter(s => s.severity == l).length;
+        if (!completing) {
+            if (nl > 0) {
+                completing = true;
+            }
+            continue;
+        }
+        if (nl > 0) {continue;}
+        let nsymps = SYMPTOMS.filter(s => symps.map(t => t.name).indexOf(s.name) === -1);
+        nsymps = nsymps.filter(s => s.severity === l);
+        symps[symps.length] = nsymps[utils.getRandomInt(0, nsymps.length)];
+    }
 
+    symps = utils.shuffle(symps);
 
     return JSON.parse(JSON.stringify(symps));
 };
