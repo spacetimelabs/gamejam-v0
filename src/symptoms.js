@@ -51,7 +51,22 @@ const generateRandomSymptons = (level) => {
     var maxPrice = 15 + level*5
     var treats = TREATMENTS.filter((t)=>t.price <= maxPrice);
     var selected = utils.randomFromList(treats);
-    return JSON.parse(JSON.stringify(SYMPTOMS.filter(s => selected.SYMP.indexOf(s.name) != -1)));
+    var symps = SYMPTOMS.filter(s => selected.SYMP.indexOf(s.name) != -1)
+
+    var toAdd = Math.floor(Math.random() * level/10);
+    var toRemove = Math.floor(Math.random() * level/15);
+
+//    for (var l = 0; l < toRemove; l++) {
+//        if (symps.length === 0) {break;}
+//        var tr = utils.getRadomInt(0, symps.length);
+//    }
+
+//    for (l = 3; l >= 0; l--) {
+        
+//    }
+
+
+    return JSON.parse(JSON.stringify(symps));
 };
 
 /*
