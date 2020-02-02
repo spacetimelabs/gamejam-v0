@@ -37,7 +37,7 @@ export default {
   name: "app",
   data: () => ({
     cash: 1000,
-    level: 0,
+    level: 1,
     cat: null,
     examLevel: 0,
     symptoms: []
@@ -63,11 +63,10 @@ export default {
     doExam() {
       this.level += 1;
       this.cash -= EXAMS_PRICE[this.examLevel];
-      for (let s of this.symptoms) {
-        if (s.severity <= this.examLevel + 1) {
-          s.discovered = true;
-        }
-      }
+
+      this.symptoms = this.symptoms.map(s => {
+          return {...s, discovered: s.severity <= this.examLevel}
+      });
       this.examLevel += 1;
     }
   },

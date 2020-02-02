@@ -5,36 +5,33 @@ const SEVERITY_MEDIUM = 1;
 const SEVERITY_HIGH = 2;
 const SEVERITY_CRITICAL = 3;
 
-const SYMPTOMS = {
-    LOW: [
+const SYMPTOMS = [
+//    LOW
       {name: "Loud", severity: SEVERITY_LOW},
       {name: "Angry", severity: SEVERITY_LOW},
       {name: "Fat", severity: SEVERITY_LOW},
       {name: "Hair Ball", severity: SEVERITY_LOW},
       {name: "Hoarse Voice", severity: SEVERITY_LOW},
       {name: "Eating a lot", severity: SEVERITY_LOW},
-      {name: "Sad", severity: SEVERITY_LOW}],
-
-    MEDIUM: [
+      {name: "Sad", severity: SEVERITY_LOW},
+//    MEDIUM
       {name: "Not Eating", severity: SEVERITY_MEDIUM},
       {name: "Lazy", severity: SEVERITY_MEDIUM},
       {name: "Sneazing", severity: SEVERITY_MEDIUM},
       {name: "Hair Loss", severity: SEVERITY_MEDIUM},
       {name: "Weight Loss", severity: SEVERITY_MEDIUM},
-      {name: "Fleas", severity: SEVERITY_MEDIUM}],
-
-    HIGH: [
+      {name: "Fleas", severity: SEVERITY_MEDIUM},
+//    HIGH
       {name: "Pain", severity: SEVERITY_HIGH},
       {name: "Confused", severity: SEVERITY_HIGH},
       {name: "Fever", severity: SEVERITY_HIGH},
       {name: "Diarrhea", severity: SEVERITY_HIGH},
-      {name: "Vomit", severity: SEVERITY_HIGH}],
-
-    CRITICAL: [
+      {name: "Vomit", severity: SEVERITY_HIGH},
+//    CRITICAL
       {name: "Injury", severity: SEVERITY_CRITICAL},
       {name: "Parasites", severity: SEVERITY_CRITICAL},
-      {name: "Infection", severity: SEVERITY_CRITICAL}]
-}
+      {name: "Infection", severity: SEVERITY_CRITICAL}
+]
 
 const TREATMENTS = [
     {name: "Flu Shot", SYMP: ["Infection", "Hair Loss", "Vomit", "Sneazing", "Fever"], price: 180},
@@ -50,6 +47,14 @@ const TREATMENTS = [
     {name: "Breathing Mask", SYMP: ["Sneazing", "Hair Ball"], price: 25}
 ]
 
+const generateRandomSymptons = (level) => {
+    var maxPrice = 15 + level*5
+    var treats = TREATMENTS.filter((t)=>t.price <= maxPrice);
+    var selected = utils.randomFromList(treats);
+    return JSON.parse(JSON.stringify(SYMPTOMS.filter(s => selected.SYMP.indexOf(s.name) != -1)));
+};
+
+/*
 const generateRandomSymptons = level => {
   var n = Math.ceil(level / 4);
   if (n < 2) n = 2;
@@ -74,6 +79,7 @@ const generateRandomSymptons = level => {
 
   return symptons;
 };
+*/
 
 export default {
   generateRandomSymptons: generateRandomSymptons
