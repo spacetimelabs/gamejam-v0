@@ -1,3 +1,5 @@
+import utils from "./utils";
+
 const SEVERITY_LOW = 0;
 const SEVERITY_MEDIUM = 1;
 const SEVERITY_HIGH = 2;
@@ -113,16 +115,6 @@ const SYMPTONS_CRITICAL = [
   }
 ];
 
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
-function randomFromList(lst) {
-  return lst[getRandomInt(0, lst.length - 1)];
-}
-
 const generateRandomSymptons = level => {
   var n = Math.ceil(level / 4);
   if (n < 2) n = 2;
@@ -131,11 +123,11 @@ const generateRandomSymptons = level => {
   let maxSeverityPoints = 10;
   let totalSeverity = 0;
 
-  let symptons = [randomFromList(SYMPTONS_LOW)];
+  let symptons = [utils.randomFromList(SYMPTONS_LOW)];
   symptons[0].discovered = true;
 
   for (let i = 1; i < n; i++) {
-    let s = randomFromList(
+    let s = utils.randomFromList(
       [].concat(SYMPTONS_MEDIUM, SYMPTONS_HIGH, SYMPTONS_CRITICAL)
     );
     if (totalSeverity + s.severity < maxSeverityPoints) {

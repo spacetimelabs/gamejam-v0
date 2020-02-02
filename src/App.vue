@@ -3,21 +3,29 @@
     <stats-bar :cash="cash" :reputation="5" />
     <cat-description name="Mr Mustafari" :symptoms="symptoms" />
 
+    <cat v-if="cat" :cat="cat" />
+
     <button @click="generateCat">Gera Gato</button>
     <button @click="doExam" :disabled="!examButtonEnabled">
       Faz Exame {{ examLevel }}
     </button>
 
-    <pre>level: {{ level }}</pre>
-    <pre>examLevel: {{ examLevel }}</pre>
-    <pre>symptoms: {{ symptoms }}</pre>
+    <div
+      style="position: absolute; top: 200px; left: 100px; background: rgba(0, 0, 0, 0.2); color: white"
+    >
+      <pre>level: {{ level }}</pre>
+      <pre>examLevel: {{ examLevel }}</pre>
+      <pre>symptoms: {{ symptoms }}</pre>
+    </div>
   </div>
 </template>
 
 <script>
 import StatsBar from "./components/StatsBar.vue";
 import CatDescription from "./components/CatDescription.vue";
+import Cat from "./components/Cat.vue";
 import symptoms from "./symptoms";
+import cats from "./cats";
 
 const EXAMS_PRICE = {
   0: 150,
@@ -30,18 +38,27 @@ export default {
   data: () => ({
     cash: 1000,
     level: 0,
+    cat: null,
     examLevel: 0,
     symptoms: []
   }),
   components: {
     StatsBar,
-    CatDescription
+    CatDescription,
+    Cat
+  },
+  created() {
+    this.generateCat();
+    setInterval(() => {
+      this.generateCat();
+    }, 5000);
   },
   methods: {
     generateCat() {
       this.examLevel = 0;
       this.cash += 150; // TODO
       this.symptoms = symptoms.generateRandomSymptons(this.level);
+      this.cat = cats.generateCat();
     },
     doExam() {
       this.level += 1;
