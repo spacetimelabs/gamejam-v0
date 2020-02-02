@@ -5,115 +5,50 @@ const SEVERITY_MEDIUM = 1;
 const SEVERITY_HIGH = 2;
 const SEVERITY_CRITICAL = 3;
 
-const SYMPTONS_LOW = [
-  // low
-  {
-    name: "Low 1",
-    severity: SEVERITY_LOW,
-    category: []
-  },
-  {
-    name: "Low 2",
-    severity: SEVERITY_LOW,
-    category: []
-  },
-  {
-    name: "Low 3",
-    severity: SEVERITY_LOW,
-    category: []
-  },
-  {
-    name: "Low 4",
-    severity: SEVERITY_LOW,
-    category: []
-  },
-  {
-    name: "Low 5",
-    severity: SEVERITY_LOW,
-    category: []
-  },
-  {
-    name: "Low 6",
-    severity: SEVERITY_LOW,
-    category: []
-  }
-];
+const SYMPTOMS = {
+    LOW: [
+      {name: "Loud", severity: SEVERITY_LOW},
+      {name: "Angry", severity: SEVERITY_LOW},
+      {name: "Fat", severity: SEVERITY_LOW},
+      {name: "Hair Ball", severity: SEVERITY_LOW},
+      {name: "Hoarse Voice", severity: SEVERITY_LOW},
+      {name: "Eating a lot", severity: SEVERITY_LOW},
+      {name: "Sad", severity: SEVERITY_LOW}],
 
-const SYMPTONS_MEDIUM = [
-  // medium
-  {
-    name: "Medium 1",
-    severity: SEVERITY_MEDIUM,
-    category: []
-  },
-  {
-    name: "Medium 2",
-    severity: SEVERITY_MEDIUM,
-    category: []
-  },
-  {
-    name: "Medium 3",
-    severity: SEVERITY_MEDIUM,
-    category: []
-  },
-  {
-    name: "Medium 4",
-    severity: SEVERITY_MEDIUM,
-    category: []
-  },
-  {
-    name: "Medium 5",
-    severity: SEVERITY_MEDIUM,
-    category: []
-  },
-  {
-    name: "Medium 6",
-    severity: SEVERITY_MEDIUM,
-    category: []
-  }
-];
+    MEDIUM: [
+      {name: "Not Eating", severity: SEVERITY_MEDIUM},
+      {name: "Lazy", severity: SEVERITY_MEDIUM},
+      {name: "Sneazing", severity: SEVERITY_MEDIUM},
+      {name: "Hair Loss", severity: SEVERITY_MEDIUM},
+      {name: "Weight Loss", severity: SEVERITY_MEDIUM},
+      {name: "Fleas", severity: SEVERITY_MEDIUM}],
 
-const SYMPTONS_HIGH = [
-  {
-    name: "High 1",
-    severity: SEVERITY_HIGH,
-    category: []
-  },
-  {
-    name: "High 2",
-    severity: SEVERITY_HIGH,
-    category: []
-  },
-  {
-    name: "High 3",
-    severity: SEVERITY_HIGH,
-    category: []
-  },
-  {
-    name: "High 4",
-    severity: SEVERITY_HIGH,
-    category: []
-  }
-];
+    HIGH: [
+      {name: "Pain", severity: SEVERITY_HIGH},
+      {name: "Confused", severity: SEVERITY_HIGH},
+      {name: "Fever", severity: SEVERITY_HIGH},
+      {name: "Diarrhea", severity: SEVERITY_HIGH},
+      {name: "Vomit", severity: SEVERITY_HIGH}],
 
-const SYMPTONS_CRITICAL = [
-  // critical
-  {
-    name: "Critical 1",
-    severity: SEVERITY_CRITICAL,
-    category: []
-  },
-  {
-    name: "Critical 2",
-    severity: SEVERITY_CRITICAL,
-    category: []
-  },
-  {
-    name: "Critical 3",
-    severity: SEVERITY_CRITICAL,
-    category: []
-  }
-];
+    CRITICAL: [
+      {name: "Injury", severity: SEVERITY_CRITICAL},
+      {name: "Parasites", severity: SEVERITY_CRITICAL},
+      {name: "Infection", severity: SEVERITY_CRITICAL}]
+}
+
+const TREATMENTS = [
+    {name: "Flu Shot", SYMP: ["Infection", "Hair Loss", "Vomit", "Sneazing", "Fever"], price: 180},
+    {name: "Anti Parasite Pills", SYMP: ["Parasites", "Diarrhea", "Weight Loss", "Lazy", "Confused"], price: 180},
+    {name: "Plaster Cast", SYMP: ["Injury", "Angry", "Pain", "Fever", "Not Eating"], price: 170},
+    {name: "Flea Bath", SYMP: ["Hair Loss", "Hair Ball", "Fleas"], price: 40},
+    {name: "Light Food", SYMP: ["Fat", "Hoarse Voice"], price: 20},
+    {name: "Premium Food", SYMP: ["Sad", "Not Eating", "Weight Loss"], price: 40},
+    {name: "Catnip", SYMP: ["Sad", "Lazy", "Loud", "Confused"], price: 70},
+    {name: "Love", SYMP: ["Loud", "Eating a lot"], price: 20},
+    {name: "Ibuprofen", SYMP: ["Pain", "Fever"], price: 70},
+    {name: "Herbal Tea", SYMP: ["Diarrhea", "Vomit"], price: 70},
+    {name: "Breathing Mask", SYMP: ["Sneazing", "Hair Ball"], price: 25}
+]
 
 const generateRandomSymptons = level => {
   var n = Math.ceil(level / 4);
@@ -123,12 +58,12 @@ const generateRandomSymptons = level => {
   let maxSeverityPoints = 10;
   let totalSeverity = 0;
 
-  let symptons = [utils.randomFromList(SYMPTONS_LOW)];
+  let symptons = [utils.randomFromList(SYMPTOMS.LOW)];
   symptons[0].discovered = true;
 
   for (let i = 1; i < n; i++) {
     let s = utils.randomFromList(
-      [].concat(SYMPTONS_MEDIUM, SYMPTONS_HIGH, SYMPTONS_CRITICAL)
+      [].concat(SYMPTOMS.MEDIUM, SYMPTOMS.HIGH, SYMPTOMS.CRITICAL)
     );
     if (totalSeverity + s.severity < maxSeverityPoints) {
       s.discovered = false;
