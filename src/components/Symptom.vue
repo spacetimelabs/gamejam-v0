@@ -1,5 +1,5 @@
 <template>
-  <div class="symptom">
+  <div :class="['symptom', status]">
     <div v-show="discovered">
       <h4>{{ name }}</h4>
       <p>Gravidade: {{ level }}</p>
@@ -13,7 +13,19 @@ export default {
     icon: String,
     name: String,
     level: Number,
-    discovered: Boolean
+    discovered: Boolean,
+    cured: Boolean
+  },
+  computed: {
+    status() {
+      if (this.cured === true) {
+        return "cured";
+      }
+      if (this.cured === false) {
+        return "ill";
+      }
+      return "";
+    }
   }
 };
 </script>
@@ -26,6 +38,14 @@ export default {
   color: #f4f4f4;
   margin-bottom: 10px;
   height: 40px;
+}
+
+.symptom.ill {
+  background-color: red;
+}
+
+.symptom.cured {
+  background-color: green;
 }
 
 h4,

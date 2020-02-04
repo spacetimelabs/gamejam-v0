@@ -11,6 +11,7 @@
         :name="s.name"
         :level="s.severity"
         :discovered="s.discovered"
+        :cured="s.cured"
       />
     </div>
   </div>

@@ -13,45 +13,45 @@
 
 <script>
 const bocas = {
-  aberta: require("@/assets/boca-aberta.png"),
-  baixa: require("@/assets/boca-baixa.png"),
-  feliz: require("@/assets/boca-feliz.png")
+  aberta: require("@/assets/skins/boca-aberta.png"),
+  baixa: require("@/assets/skins/boca-baixa.png"),
+  feliz: require("@/assets/skins/boca-feliz.png")
 };
 
 const cabecas = {
-  amarelo: require("@/assets/cabeca-amarelo.png"),
-  cinza: require("@/assets/cabeca-cinza.png"),
-  manchado: require("@/assets/cabeca-manchado.png"),
-  preto: require("@/assets/cabeca-preto.png")
+  amarelo: require("@/assets/skins/cabeca-amarelo.png"),
+  cinza: require("@/assets/skins/cabeca-cinza.png"),
+  manchado: require("@/assets/skins/cabeca-manchado.png"),
+  preto: require("@/assets/skins/cabeca-preto.png")
 };
 
 const corpos = {
-  amarelo: require("@/assets/corpo-amarelo.png"),
-  cinza: require("@/assets/corpo-cinza.png"),
-  manchado: require("@/assets/corpo-manchado.png"),
-  preto: require("@/assets/corpo-preto.png")
+  amarelo: require("@/assets/skins/corpo-amarelo.png"),
+  cinza: require("@/assets/skins/corpo-cinza.png"),
+  manchado: require("@/assets/skins/corpo-manchado.png"),
+  preto: require("@/assets/skins/corpo-preto.png")
 };
 
 const olhos = {
-  assustado: require("@/assets/olhos-assustado.png"),
-  bravo: require("@/assets/olhos-bravo.png"),
-  grandes: require("@/assets/olhos-grandes.png"),
-  preguica: require("@/assets/olhos-preguica.png"),
-  triste: require("@/assets/olhos-triste.png")
+  assustado: require("@/assets/skins/olhos-assustado.png"),
+  bravo: require("@/assets/skins/olhos-bravo.png"),
+  grandes: require("@/assets/skins/olhos-grandes.png"),
+  preguica: require("@/assets/skins/olhos-preguica.png"),
+  triste: require("@/assets/skins/olhos-triste.png")
 };
 
 const patas = {
-  cinza: require("@/assets/patas-cinza.png"),
-  manchado: require("@/assets/patas-manchado.png"),
-  preto: require("@/assets/patas-preto.png"),
-  amarelo: require("@/assets/patas-amarelo.png")
+  cinza: require("@/assets/skins/patas-cinza.png"),
+  manchado: require("@/assets/skins/patas-manchado.png"),
+  preto: require("@/assets/skins/patas-preto.png"),
+  amarelo: require("@/assets/skins/patas-amarelo.png")
 };
 
 const rabos = {
-  amarelo: require("@/assets/rabo-amarelo.png"),
-  cinza: require("@/assets/rabo-cinza.png"),
-  manchado: require("@/assets/rabo-manchado.png"),
-  preto: require("@/assets/rabo-preto.png")
+  amarelo: require("@/assets/skins/rabo-amarelo.png"),
+  cinza: require("@/assets/skins/rabo-cinza.png"),
+  manchado: require("@/assets/skins/rabo-manchado.png"),
+  preto: require("@/assets/skins/rabo-preto.png")
 };
 
 export default {
@@ -74,9 +74,9 @@ export default {
 <style scoped>
 .cat {
   position: absolute;
-  top: 300px;
-  left: 440px;
-  zoom: 1.5;
+  top: 280px;
+  left: 264px;
+  zoom: 2;
 }
 
 .head {
@@ -102,13 +102,13 @@ export default {
 
 @keyframes head_movement2 {
   0% {
-    top: -1px;
+    top: 1px;
   }
   50% {
-    top: 3px;
+    top: 4px;
   }
   100% {
-    top: -1px;
+    top: 1px;
   }
 }
 
@@ -133,7 +133,7 @@ export default {
 
 .paws {
   position: absolute;
-  top: 78px;
+  top: 80px;
   left: 8px;
 }
 
