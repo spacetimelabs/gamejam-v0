@@ -193,8 +193,7 @@ body {
 }
 
 .bt-exam {
-  position: absolute;
-  bottom: 71px;
+  /* bottom: 71px;
   right: 0px;
   width: 400px;
   height: 80px;
@@ -204,6 +203,7 @@ body {
   color: white;
   font-weight: bold;
   font-size: 25px;
+  float: right; */
 }
 
 @keyframes shake {
