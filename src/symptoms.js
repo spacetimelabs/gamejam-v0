@@ -7,30 +7,30 @@ const SEVERITY_CRITICAL = 3;
 
 const SYMPTOMS = [
   //    LOW
-  { name: "Loud", severity: SEVERITY_LOW },
-  { name: "Angry", severity: SEVERITY_LOW },
-  { name: "Fat", severity: SEVERITY_LOW },
-  { name: "Hair Ball", severity: SEVERITY_LOW },
-  { name: "Hoarse Voice", severity: SEVERITY_LOW },
-  { name: "Eating a lot", severity: SEVERITY_LOW },
-  { name: "Sad", severity: SEVERITY_LOW },
+  { name: "Loud", severity: SEVERITY_LOW, icon: require(`@/assets/sintomas/loud.png`)},
+  { name: "Angry", severity: SEVERITY_LOW, icon: require(`@/assets/sintomas/angry.png`) },
+  { name: "Fat", severity: SEVERITY_LOW, icon: require(`@/assets/sintomas/fat.png`) },
+  { name: "Hair Ball", severity: SEVERITY_LOW, icon: require(`@/assets/sintomas/hairball.png`) },
+  { name: "Hoarse Voice", severity: SEVERITY_LOW, icon: require(`@/assets/sintomas/hoarsevoice.png`) },
+  { name: "Eating a lot", severity: SEVERITY_LOW, icon: require(`@/assets/sintomas/eatingalot.png`) },
+  { name: "Sad", severity: SEVERITY_LOW, icon: require(`@/assets/sintomas/sad.png`) },
   //    MEDIUM
-  { name: "Not Eating", severity: SEVERITY_MEDIUM },
-  { name: "Lazy", severity: SEVERITY_MEDIUM },
-  { name: "Sneazing", severity: SEVERITY_MEDIUM },
-  { name: "Hair Loss", severity: SEVERITY_MEDIUM },
-  { name: "Weight Loss", severity: SEVERITY_MEDIUM },
-  { name: "Fleas", severity: SEVERITY_MEDIUM },
+  { name: "Not Eating", severity: SEVERITY_MEDIUM, icon: require(`@/assets/sintomas/noteating.png`) },
+  { name: "Lazy", severity: SEVERITY_MEDIUM, icon: require(`@/assets/sintomas/lazy.png`) },
+  { name: "Sneazing", severity: SEVERITY_MEDIUM, icon: require(`@/assets/sintomas/sneazing.png`) },
+  { name: "Hair Loss", severity: SEVERITY_MEDIUM, icon: require(`@/assets/sintomas/hairloss.png`) },
+  { name: "Weight Loss", severity: SEVERITY_MEDIUM, icon: require(`@/assets/sintomas/weightloss.png`) },
+  { name: "Fleas", severity: SEVERITY_MEDIUM, icon: require(`@/assets/sintomas/fleas.png`) },
   //    HIGH
-  { name: "Pain", severity: SEVERITY_HIGH },
-  { name: "Confused", severity: SEVERITY_HIGH },
-  { name: "Fever", severity: SEVERITY_HIGH },
-  { name: "Diarrhea", severity: SEVERITY_HIGH },
-  { name: "Vomit", severity: SEVERITY_HIGH },
+  { name: "Pain", severity: SEVERITY_HIGH, icon: require(`@/assets/sintomas/pain.png`) },
+  { name: "Confused", severity: SEVERITY_HIGH, icon: require(`@/assets/sintomas/confused.png`) },
+  { name: "Fever", severity: SEVERITY_HIGH, icon: require(`@/assets/sintomas/fever.png`) },
+  { name: "Diarrhea", severity: SEVERITY_HIGH, icon: require(`@/assets/sintomas/diarrhea.png`) },
+  { name: "Vomit", severity: SEVERITY_HIGH, icon: require(`@/assets/sintomas/vomit.png`) },
   //    CRITICAL
-  { name: "Injury", severity: SEVERITY_CRITICAL },
-  { name: "Parasites", severity: SEVERITY_CRITICAL },
-  { name: "Infection", severity: SEVERITY_CRITICAL }
+  { name: "Injury", severity: SEVERITY_CRITICAL, icon: require(`@/assets/sintomas/injury.png`) },
+  { name: "Parasites", severity: SEVERITY_CRITICAL, icon: require(`@/assets/sintomas/parasites.png`) },
+  { name: "Infection", severity: SEVERITY_CRITICAL, icon: require(`@/assets/sintomas/infection.png`) }
 ];
 
 const TREATMENTS = [

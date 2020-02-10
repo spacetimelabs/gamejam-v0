@@ -1,8 +1,18 @@
 <template>
   <div :class="['symptom', status]">
-    <div v-show="discovered">
+    <div v-if="discovered">
+      <div class='symtom-icon-wrapper' >
+        <img :src="icon" class='symptom-icon' />
+      </div>
       <h4>{{ name }}</h4>
       <p>Gravidade: {{ level }}</p>
+    </div>
+    <div v-else>
+      <div class='symtom-icon-wrapper' >
+        <img :src="require(`@/assets/sintomas/unknown.png`)" class='symptom-icon' />
+      </div>
+      <h4>?????</h4>
+      <p>Gravidade: ?</p>
     </div>
   </div>
 </template>
@@ -32,12 +42,11 @@ export default {
 
 <style scoped>
 .symptom {
-  padding: 16px 15px;
-  border: 3px solid #29366f;
-  background: #41a6f6;
-  color: #f4f4f4;
-  margin-bottom: 10px;
-  height: 40px;
+  padding: 5px 15px;
+  color: #42a38e;
+  height: 49px;
+  font-size: 22px;
+  min-height: 78px;
 }
 
 .symptom.ill {
@@ -46,6 +55,21 @@ export default {
 
 .symptom.cured {
   background-color: green;
+}
+
+.symptom-icon {
+  padding-right: 18px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.symtom-icon-wrapper {
+  position: relative;
+  float: left;
+  min-width: 78px;
+  min-height: 68px;
 }
 
 h4,
