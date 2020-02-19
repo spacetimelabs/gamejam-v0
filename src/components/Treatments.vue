@@ -30,12 +30,20 @@ export default {
   position: absolute;
   left: 20px;
   top: 220px;
+  border: 10px solid #fcc139;
+  border-radius: 20px;
+  background: #fffce8
 }
 
 .treatments .treatment {
   padding: 8px;
-  background: white;
   cursor: pointer;
+  font-size: 20px;
+  color: #338277;
+}
+
+.treatments .treatment:hover {
+  background: #fc9f39;
 }
 
 .treatments .treatment.disabled {

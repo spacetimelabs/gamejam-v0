@@ -22,7 +22,7 @@
       />
 
       <button @click="generateCat">Gera Gato</button>
-      <button @click="doExam" :disabled="!examButtonEnabled">Faz Exame {{ examLevel }}</button>
+      <button @click="doExam" class='bt-exam' :disabled="!examButtonEnabled">Examinar</button>
     </div>
   </div>
 </template>
@@ -147,7 +147,7 @@ body {
 }
 
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Sriracha', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
@@ -190,6 +190,20 @@ body {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
+}
+
+.bt-exam {
+  /* bottom: 71px;
+  right: 0px;
+  width: 400px;
+  height: 80px;
+  border-radius: 20px;
+  border: 10px solid #3c9d90;
+  background: #75c1b9;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  float: right; */
 }
 
 @keyframes shake {

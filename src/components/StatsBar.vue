@@ -3,8 +3,8 @@
     <div class="reputation">
       <span class="bar" :style="{ width: reputationSize + 'px' }" />
     </div>
-    <div class="cash">$$ {{ cash }}</div>
-    <div class="level">Lvl. {{ level }}</div>
+    <div class="cash">$ {{ cash }}</div>
+    <div class="level">{{ level }}</div>
   </div>
 </template>
 
@@ -25,6 +25,35 @@ export default {
 </script>
 
 <style scoped>
+
+.cash {
+  background: url('../assets/ui/dinheiro.png') no-repeat;
+  width: 168px;
+  height: 45px;
+  color: white;
+  font-size: 20px;
+  padding-left: 48px;
+  padding-top: 7px;
+  font-weight: bold;
+}
+
+.level {
+  background: url('../assets/ui/gatos.png') no-repeat;
+  width: 168px;
+  height: 45px;
+  color: white;
+  font-size: 20px;
+  padding-left: 48px;
+  padding-top: 7px;
+  font-weight: bold;
+}
+
+.stats-bar {
+  float: left;
+  width: 300px;
+  height: 120px;
+}
+
 .stats-bar .reputation {
   padding: 5px;
   color: gold;
