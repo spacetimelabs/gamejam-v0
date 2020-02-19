@@ -74,7 +74,7 @@ export default {
     },
     generateCat() {
       this.examLevel = 0;
-      this.cash += 150; // TODO
+      this.cash += 100 + 20 * this.level;
       this.symptoms = symptoms.generateRandomSymptons(this.level);
       this.cat = cats.generateCat();
       this.doExam();

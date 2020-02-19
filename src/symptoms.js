@@ -34,38 +34,55 @@ const SYMPTOMS = [
 ];
 
 const TREATMENTS = [
-  {
-    name: "Flu Shot",
+  { name: "Flu Shot",
     SYMP: ["Infection", "Hair Loss", "Vomit", "Sneazing", "Fever"],
     price: 900
   },
-  {
-    name: "Anti Parasite Pills",
+  { name: "Anti Parasite Pills",
     SYMP: ["Parasites", "Diarrhea", "Weight Loss", "Lazy", "Confused"],
-    price: 900
+    price: 800
   },
-  {
-    name: "Plaster Cast",
+  { name: "Plaster Cast",
     SYMP: ["Injury", "Angry", "Pain", "Fever", "Not Eating"],
-    price: 850
+    price: 700
   },
-  { name: "Flea Bath", SYMP: ["Hair Loss", "Hair Ball", "Fleas"], price: 200 },
-  { name: "Light Food", SYMP: ["Fat", "Hoarse Voice"], price: 100 },
-  {
-    name: "Premium Food",
+  { name: "Flea Bath",
+    SYMP: ["Hair Loss", "Hair Ball", "Fleas"], 
+    price: 200 
+  },
+  { name: "Light Food", 
+    SYMP: ["Fat", "Hoarse Voice"], 
+    price: 70 
+  },
+  { name: "Premium Food",
     SYMP: ["Sad", "Not Eating", "Weight Loss"],
     price: 200
   },
-  { name: "Catnip", SYMP: ["Sad", "Lazy", "Loud", "Confused"], price: 350 },
-  { name: "Love", SYMP: ["Loud", "Eating a lot"], price: 0 },
-  { name: "Ibuprofen", SYMP: ["Pain", "Fever"], price: 350 },
-  { name: "Herbal Tea", SYMP: ["Diarrhea", "Vomit"], price: 350 },
-  { name: "Breathing Mask", SYMP: ["Sneazing", "Hair Ball"], price: 125 }
+  { name: "Catnip", 
+    SYMP: ["Sad", "Lazy", "Loud", "Confused"], 
+    price: 450 
+  },
+  { name: "Love", 
+    SYMP: ["Loud", "Eating a lot"], 
+    price: 0 
+  },
+  { name: "Ibuprofen", 
+    SYMP: ["Pain", "Fever"], 
+    price: 550
+  },
+  { name: "Herbal Tea", 
+    SYMP: ["Diarrhea", "Vomit"], 
+    price: 350 
+  },
+  { name: "Breathing Mask", 
+    SYMP: ["Sneazing", "Hair Ball"], 
+    price: 100 
+  }
 ];
 
 const generateRandomSymptons = level => {
   console.log("level ", level);
-  var maxPrice = 50 + level * 10;
+  var maxPrice = 10 + level * 30;
   console.log("mp ", maxPrice);
   var treats = TREATMENTS.filter(t => t.price <= maxPrice);
   var selected = utils.randomFromList(treats);

@@ -33,7 +33,7 @@ const names = [
 ];
 
 const titles = [
-  "Sr. ",
+  "Sra. ",
   "Sr. ",
   "Grande ",
   "",
